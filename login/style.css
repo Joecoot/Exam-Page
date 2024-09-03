@@ -237,6 +237,11 @@ h2 {
 }
 
 @media screen and (max-width: 1200px) {
+  html, body {
+    overflow: auto;
+    height: auto;
+  }
+
   canvas {
     display: none;
   }
