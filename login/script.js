@@ -139,10 +139,14 @@ responsiveSign.addEventListener(`click`, (e) => {
   loginWrapper.classList.add(`display-none`);
 });
 
+let res = false;
 function responsive() {
   if (window.innerWidth <= 1200) {
     responsiveDiv.classList.remove(`display-none`);
-    signupWrapper.classList.add(`display-none`);
+    if (!res) {
+      signupWrapper.classList.add(`display-none`);
+      res = true;
+    }
   } else {
     signupWrapper.classList.remove(`display-none`);
     loginWrapper.classList.remove(`display-none`);
