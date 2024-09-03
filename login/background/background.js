@@ -23,4 +23,6 @@ function animate() {
     ballsArray.forEach(ball => ball.update());
 }
 
-createBalls();
+if (!(window.innerWidth <= 1200)) {
+    createBalls();    
+}
