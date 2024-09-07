@@ -18,7 +18,7 @@ class Exam {
   constructor() {
     this.maxQuestions = 30; // Used to set the max amount of questions the user is going to get.
     this.questionsArray = []; // The array for keeping the questions.
-    this.maxTime = 5; // The max time the user is going to get to solve the questions (In seconds)
+    this.maxTime = 10 * 60; // The max time the user is going to get to solve the questions (In seconds)
     this.showResult = this.checkIfFinished(); // Controls the current state of the page (Exam or show result)
     this.responsive = this.checkResponsive(); // Check if the user is in responsive mode
 
