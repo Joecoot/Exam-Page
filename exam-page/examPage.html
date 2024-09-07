@@ -28,7 +28,7 @@
       <div id="container">
         <div id="top-container">
           <div id="top-container-content">
-            <div class="user-image-container no-image">
+            <div id="user-image-container" class="no-image">
               <h1 class=""><i class="fa-solid fa-user"></i></h1>
             </div>
 
@@ -37,13 +37,14 @@
 
           <button id="logout-button">Logout</button>
 
-          <input type="checkbox" id="menu-button" class="display-none">
-          <label id="menu-button-label" class="display-none" for="menu-button"><i class="fa-solid fa-bars"></i></label>
+          <input type="checkbox" id="menu-button" class="display-none" />
+          <label id="menu-button-label" for="menu-button"
+            ><i class="fa-solid fa-bars"></i
+          ></label>
         </div>
 
         <div id="exam-question-container">
           <div id="exam-container">
-
             <div id="exam-timer-container">
               <h1><i class="fa-regular fa-clock"></i></h1>
               <div id="exam-timer-contents">
@@ -52,7 +53,12 @@
               </div>
 
               <div id="score-container" class="display-none">
-                <p><i class="fa-regular fa-clipboard"></i> Score : <span id="score-span"></span>/<span id="total-score-span"></span></p>
+                <p>
+                  <i class="fa-regular fa-clipboard"></i> Score :
+                  <span id="score-span"></span>/<span
+                    id="total-score-span"
+                  ></span>
+                </p>
               </div>
             </div>
 
@@ -65,26 +71,42 @@
               <div class="choice">
                 <h2 class="color-blue">A.</h2>
                 <p id="choice-1"></p>
-                <div class="choices-icons display-none"><i class="fa-solid fa-circle-check"></i></div>
-                <div class="choices-icons display-none"><i class="fa-solid fa-circle-xmark"></i></div>
+                <div class="choices-icons display-none">
+                  <i class="fa-solid fa-circle-check"></i>
+                </div>
+                <div class="choices-icons display-none">
+                  <i class="fa-solid fa-circle-xmark"></i>
+                </div>
               </div>
               <div class="choice">
                 <h2 class="color-blue">B.</h2>
                 <p id="choice-2"></p>
-                <div class="choices-icons display-none"><i class="fa-solid fa-circle-check"></i></div>
-                <div class="choices-icons display-none"><i class="fa-solid fa-circle-xmark"></i></div>
+                <div class="choices-icons display-none">
+                  <i class="fa-solid fa-circle-check"></i>
+                </div>
+                <div class="choices-icons display-none">
+                  <i class="fa-solid fa-circle-xmark"></i>
+                </div>
               </div>
               <div class="choice">
                 <h2 class="color-blue">C.</h2>
                 <p id="choice-3"></p>
-                <div class="choices-icons display-none"><i class="fa-solid fa-circle-check"></i></div>
-                <div class="choices-icons display-none"><i class="fa-solid fa-circle-xmark"></i></div>
+                <div class="choices-icons display-none">
+                  <i class="fa-solid fa-circle-check"></i>
+                </div>
+                <div class="choices-icons display-none">
+                  <i class="fa-solid fa-circle-xmark"></i>
+                </div>
               </div>
               <div class="choice">
                 <h2 class="color-blue">D.</h2>
                 <p id="choice-4"></p>
-                <div class="choices-icons display-none"><i class="fa-solid fa-circle-check"></i></div>
-                <div class="choices-icons display-none"><i class="fa-solid fa-circle-xmark"></i></div>
+                <div class="choices-icons display-none">
+                  <i class="fa-solid fa-circle-check"></i>
+                </div>
+                <div class="choices-icons display-none">
+                  <i class="fa-solid fa-circle-xmark"></i>
+                </div>
               </div>
             </div>
 
@@ -111,7 +133,7 @@
               <div id="questions-number-container"></div>
             </div>
 
-            <button id="submit-button">Submit</button>
+            <button class="disabled" id="submit-button">Submit</button>
           </div>
         </div>
       </div>

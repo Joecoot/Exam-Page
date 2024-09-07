@@ -26,7 +26,7 @@
   width: 30%;
 }
 
-#welcome-text {
+.big-text {
   color: black;
   font-size: 3.125rem;
   font-weight: 700;
@@ -45,11 +45,11 @@
   }
 }
 
-#welcome-text #name-text {
+.big-text .name-text {
   color: var(--blue);
 }
 
-#start-button {
+.button {
   cursor: pointer;
   border-radius: 0.56763rem;
   background-color: var(--blue);
@@ -64,11 +64,21 @@
   justify-content: space-between;
   transition: 0.2s ease;
 }
-#start-button:hover {
+.button:not(.disabled):hover {
   background-color: rgb(8, 36, 80, 0.9);
 }
-#start-button i {
+.button i {
   transform: translateY(10%);
+}
+
+#image-skip {
+  background-color: white;
+  color: var(--blue);
+  border: 1px solid var(--blue);
+}
+
+#image-skip:hover {
+  background-color: rgb(247, 247, 247);
 }
 
 @keyframes rise {
@@ -108,6 +118,69 @@ img {
   animation: image-animation var(--animation-delay) ease-out;
 }
 
+#image-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+}
+
+#image-div {
+  width: 300px;
+  height: 300px;
+  border-radius: 100%;
+  background-color: var(--blue);
+  overflow: hidden;
+  transition: 0.5s ease;
+}
+
+.no-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.no-image i {
+  color: white;
+  font-size: 3rem;
+  transform: translateY(400%);
+  transition: 0.5s ease;
+}
+
+.no-image:hover i {
+  transform: translateY(0);
+}
+
+#image-div:hover {
+  background-color: rgba(8, 36, 80, 0.8);
+  scale: 1.1;
+}
+
+#image-container input {
+  display: none;
+}
+
+#image-container-buttons {
+  display: flex;
+  gap: 1rem;
+}
+
+#image-container-buttons button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.display-none {
+  display: none !important;
+}
+
+.disabled {
+  opacity: 0.5;
+  cursor: default !important;
+}
+
 @media screen and (max-width: 1300px) {
   #wrapper {
     flex-direction: column-reverse;
@@ -126,15 +199,22 @@ img {
     align-items: center;
   }
 
-  #welcome-text {
+  .big-text {
     font-size: 2.5rem;
     padding: 0 1rem;
     text-align: center;
   }
 
-  #start-button {
+  .button {
     font-size: large;
     width: 70%;
     padding: 1rem 4rem;
+  }
+
+  #image-container-buttons {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
   }
 }

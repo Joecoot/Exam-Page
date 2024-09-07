@@ -155,7 +155,7 @@ input:focus {
   text-align: center;
   color: white;
 }
-
+/* using left and right to create a transition */
 .left {
   left: 0;
 }
@@ -237,7 +237,8 @@ h2 {
 }
 
 @media screen and (max-width: 1200px) {
-  html, body {
+  html,
+  body {
     overflow: auto;
     height: auto;
   }
@@ -262,7 +263,6 @@ h2 {
     width: 100%;
     max-width: none;
     padding: 10% !important;
-
   }
 
   #signIn-Wrapper {

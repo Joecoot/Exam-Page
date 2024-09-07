@@ -14,9 +14,25 @@
 </head>
 <body>
     <div id="wrapper">
+        <div id="image-container" class="display-none">
+            <div>
+                <p class="big-text">Hello <span class="name-text"></span>,</p>
+                <p class="big-text">Would you like to add a picture?</p>
+            </div>
+            <div id="image-div" class="no-image">
+                <img width="300" height="300" id="image" src="#" class="display-none">
+                <i class="fa-solid fa-upload"></i>
+            </div>
+            <input type="file" id="image-input">
+            <div id="image-container-buttons">
+                <button disabled id="image-confirm" class="button disabled">Confirm</button>
+                <button id="image-skip" class="button">Skip</button>
+            </div>
+        </div>
+
         <div id="left-side-container">
-            <p id="welcome-text">Welcome, <span id="name-text">Mohamad</span>! Ready to start?</p>
-            <button id="start-button">Start now <i class="fa-solid fa-arrow-right"></i></button>
+            <p class="big-text">Welcome, <span class="name-text"></span>! Ready to start?</p>
+            <button id="start-button" class="button">Start now <i class="fa-solid fa-arrow-right"></i></button>
         </div>
 
         <div id="right-side-container">

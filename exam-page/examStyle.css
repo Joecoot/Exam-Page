@@ -3,7 +3,7 @@
   --gray: #e9e9e9;
   --green: #16c836;
   --light-blue: #c6e9ff;
-  --red: #F81515;
+  --red: #f81515;
 }
 
 * {
@@ -64,19 +64,25 @@
   height: 100%;
 }
 
-.user-image-container {
+#user-image-container {
   height: 80%;
   aspect-ratio: 1/1;
   border-radius: 100%;
+  overflow: hidden;
+}
+
+#user-image-container img {
+  width: 100%;
+  height: 100%;
+}
+
+.no-image {
+  background-color: var(--light-blue);
   display: flex;
   justify-content: center;
   align-content: center;
   text-align: center;
   flex-direction: column;
-}
-
-.no-image {
-  background-color: var(--light-blue);
 }
 
 .no-image h1 {
@@ -280,7 +286,7 @@
   transition: 0.1s ease;
 }
 #flag-button:not(.active):hover {
-  background-color: var(--gray);
+  background-color: rgb(240, 240, 240);
 }
 #white {
   color: white;
@@ -415,7 +421,7 @@
   cursor: pointer;
   transition: 0.2s ease;
 }
-#submit-button:hover {
+#submit-button:not(.disabled):hover {
   background-color: rgb(8, 36, 80, 0.9);
 }
 .disabled {
@@ -448,11 +454,13 @@
   border-color: var(--red);
 }
 
-.correct h2, .wrong h2 {
+.correct h2,
+.wrong h2 {
   color: white;
 }
 
-.correct p, .wrong p {
+.correct p,
+.wrong p {
   color: white;
 }
 
@@ -462,11 +470,24 @@
 
 #menu-button-label {
   font-size: xx-large;
+  display: none;
   transition: transform 0.8s ease;
 }
 
 #menu-button:checked ~ #menu-button-label {
   transform: rotate(270deg);
+}
+
+.menu-hidden {
+  max-height: 0;
+  padding: 0 2rem;
+  visibility: hidden;
+}
+
+.menu-active {
+  max-height: 1000px;
+  padding: 2rem 2rem 0 2rem;
+  visibility: visible;
 }
 
 @media screen and (max-width: 1300px) {
@@ -476,12 +497,12 @@
     width: 100vw;
   }
 
-  .user-image-container {
+  #user-image-container {
     height: 100%;
     width: 3rem;
   }
 
-  .user-image-container h1 {
+  #user-image-container h1 {
     font-size: 1.5rem;
   }
 
@@ -544,14 +565,15 @@
     width: 100vw;
     left: 0;
     top: 10%;
-    height: 100vh;
     justify-content: flex-start;
-    max-height: 1000px;
     transition: max-height 1s ease, visibility 1s ease;
-    visibility: hidden;
   }
 
   #question-container-content {
     height: 75%;
+  }
+
+  #menu-button-label {
+    display: block;
   }
 }

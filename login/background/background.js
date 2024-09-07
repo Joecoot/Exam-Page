@@ -1,28 +1,33 @@
-import Ball from './Ball.js';
+import Ball from "./Ball.js";
 
 const canvas = document.getElementById("floatingBalls");
 const ctx = canvas.getContext("2d");
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
 
 const numberOfBalls = 50;
-const ballsArray = [];
+let ballsArray = [];
 
 function createBalls() {
-    for (let i = 0; i<numberOfBalls; i++) {
-        let ball = new Ball(2, ballsArray);
-        ballsArray.push(ball);
-    }
-    animate();
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+  ballsArray = [];
+  for (let i = 0; i < numberOfBalls; i++) {
+    let ball = new Ball(2, ballsArray);
+    ballsArray.push(ball);
+  }
+  animate();
 }
 
 function animate() {
-    requestAnimationFrame(animate);
+  requestAnimationFrame(animate);
 
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    ballsArray.forEach(ball => ball.update());
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  ballsArray.forEach((ball) => ball.update());
 }
 
-if (!(window.innerWidth <= 1200)) {
-    createBalls();    
-}
+createBalls();
+
+window.addEventListener(`resize`, () => {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+  ballsArray.forEach((ball) => ball.update());
+});

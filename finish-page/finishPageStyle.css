@@ -1,7 +1,7 @@
 :root {
   --blue: #082450;
   --green: #16c836;
-  --red: #F81515;
+  --red: #f81515;
   --light-blue: #c6e9ff;
   --animation-delay: 0.7s;
   --minimum-width: 1300px;
@@ -62,18 +62,24 @@
   height: 100%;
 }
 
-.user-image-container {
+#user-image-container {
   height: 80%;
   aspect-ratio: 1/1;
   border-radius: 100%;
+  overflow: hidden;
+}
+
+#user-image-container img {
+  width: 100%;
+  height: 100%;
+}
+
+.no-image {
   display: flex;
   justify-content: center;
   align-content: center;
   text-align: center;
   flex-direction: column;
-}
-
-.no-image {
   background-color: var(--light-blue);
 }
 
@@ -103,7 +109,8 @@
   width: 30%;
 }
 
-#congratulations-text, #score-text {
+#congratulations-text,
+#score-text {
   color: black;
   font-size: 3.125rem;
   font-weight: 700;
@@ -136,7 +143,8 @@
   gap: 1rem;
 }
 
-#buttons-container button, .retake-test-button {
+#buttons-container button,
+.retake-test-button {
   cursor: pointer;
   border-radius: 0.56763rem;
   background-color: var(--blue);
@@ -153,10 +161,15 @@
 }
 
 .retake-test-button {
+  border: 1px solid var(--blue);
   display: flex !important;
   justify-content: center !important;
   background-color: white !important;
   color: var(--blue) !important;
+  transition: all 0.2s ease;
+}
+.retake-test-button:hover {
+  background-color: rgb(247, 247, 247) !important;
 }
 
 #buttons-container button:hover {
@@ -175,10 +188,6 @@
     transform: translateY(0);
     opacity: 1;
   }
-}
-
-img {
-  /*animation: image-animation var(--animation-delay) ease-out;*/
 }
 
 @keyframes image-animation {
@@ -240,7 +249,7 @@ img {
   transform-origin: 49.5% 56%;
 }
 
-#clock-hand:hover{
+#clock-hand:hover {
   animation: spin 0.4s ease-out;
 }
 
@@ -300,17 +309,20 @@ img {
     width: 100%;
   }
 
-  #left-side-container, #left-side-container p {
+  #left-side-container,
+  #left-side-container p {
     width: 100%;
     text-align: center;
   }
 
-  #congratulations-text, #oops-p{
+  #congratulations-text,
+  #oops-p {
     font-size: 2.5rem;
     padding: 0 1rem;
   }
 
-  #score-text, #time-p{
+  #score-text,
+  #time-p {
     font-size: 2rem;
   }
 
@@ -324,13 +336,14 @@ img {
     align-items: center;
   }
 
-  #buttons-container button, .retake-test-button{
+  #buttons-container button,
+  .retake-test-button {
     font-size: large;
     width: 70%;
     padding: 1rem 2.8rem;
   }
 
-  #time-image-container{
+  #time-image-container {
     scale: 0.7;
   }
 }

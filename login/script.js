@@ -17,7 +17,7 @@ const signPasswordInput = document.getElementById(`sign-password-input`);
 const signButton = document.getElementById(`sign-button`);
 
 let state = 0;
-
+// check if logged in
 if (localStorage.getItem(`logged`) === `true`) {
   window.location.href = `../get-started-page/getStartedPage.html`;
 }
@@ -34,7 +34,7 @@ loginButton.onclick = () => {
     : `Please enter a real email.`;
 
   if (emailCheck && passwordCheck) {
-    let user = JSON.parse(localStorage.getItem(`user`));
+    const user = JSON.parse(localStorage.getItem(`user`));
     if (
       user !== null &&
       loginEmailInput.value === user.email &&
@@ -44,8 +44,9 @@ loginButton.onclick = () => {
       loginButton.parentElement.querySelector(`.error`).textContent = ``;
       window.location.href = `../get-started-page/getStartedPage.html`;
     } else {
-      loginButton.parentElement.querySelector(`#login-error`).textContent =
-        `Wrong email or password.`;
+      loginButton.parentElement.querySelector(
+        `#login-error`
+      ).textContent = `Wrong email or password.`;
       localStorage.setItem(`logged`, false);
     }
   }
@@ -53,17 +54,17 @@ loginButton.onclick = () => {
 
 // Sign Up
 signButton.onclick = () => {
-  let nameCheck = isValidName(signNameInput.value);
+  const nameCheck = isValidName(signNameInput.value);
   signNameInput.parentElement.querySelector("p").textContent = nameCheck
     ? ``
     : `Enter a valid name.`;
 
-  let passwordCheck = isValidPassword(signPasswordInput.value);
+  const passwordCheck = isValidPassword(signPasswordInput.value);
   signPasswordInput.parentElement.querySelector("p").textContent = passwordCheck
     ? ``
     : `Password must be at least 8 characters long.`;
 
-  let emailCheck = isValidEmail(signEmailInput.value);
+  const emailCheck = isValidEmail(signEmailInput.value);
   signEmailInput.parentElement.querySelector("p").textContent = emailCheck
     ? ``
     : `Please enter a real email.`;
@@ -75,7 +76,7 @@ signButton.onclick = () => {
         name: signNameInput.value,
         email: signEmailInput.value,
         password: signPasswordInput.value,
-      }),
+      })
     );
     transition();
     if (window.innerWidth <= 1200) {
@@ -112,29 +113,31 @@ function transition() {
   }
 }
 
+// Responsive code
+
 const responsiveDiv = document.getElementById(`responsive-div`);
 const signupWrapper = document.getElementById(`signIn-Wrapper`);
+const responsiveLogin = document.getElementById(`responsive-login`);
+const responsiveSignUp = document.getElementById(`responsive-sign`);
+
 window.addEventListener(`resize`, () => {
   responsive();
 });
 
-const responsiveLogin = document.getElementById(`responsive-login`);
-const responsiveSign = document.getElementById(`responsive-sign`);
-
 function changeToLogin() {
   state = 0;
   responsiveLogin.classList.add(`active`);
-  responsiveSign.classList.remove(`active`);
+  responsiveSignUp.classList.remove(`active`);
   signupWrapper.classList.add(`display-none`);
   loginWrapper.classList.remove(`display-none`);
 }
 
 responsiveLogin.addEventListener(`click`, changeToLogin);
 
-responsiveSign.addEventListener(`click`, (e) => {
+responsiveSignUp.addEventListener(`click`, (e) => {
   state = 1;
   responsiveLogin.classList.remove(`active`);
-  responsiveSign.classList.add(`active`);
+  responsiveSignUp.classList.add(`active`);
   signupWrapper.classList.remove(`display-none`);
   loginWrapper.classList.add(`display-none`);
 });
@@ -150,6 +153,7 @@ function responsive() {
   } else {
     signupWrapper.classList.remove(`display-none`);
     loginWrapper.classList.remove(`display-none`);
+    res = false;
   }
 }
 
